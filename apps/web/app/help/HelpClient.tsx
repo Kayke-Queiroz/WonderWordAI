@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import {
   Search,
   Folder,
@@ -16,6 +15,16 @@ import {
 } from "lucide-react";
 
 import type { HeaderAuthState } from "@/lib/auth/server";
+import { SiteHeader, type SiteNavItem } from "@/components/shared/SiteHeader";
+import { SiteFooter } from "@/components/shared/SiteFooter";
+import { HeaderAuthAction } from "@/components/shared/HeaderAuthAction";
+
+const HEADER_NAV_ITEMS: SiteNavItem[] = [
+  { label: "Home", href: "#" },
+  { label: "Story Library", href: "#" },
+  { label: "Store", href: "#" },
+  { label: "Diagnostics", href: "#" },
+];
 
 // -----------------------------------------------------------------------------
 // WonderWord AI — Help & FAQ page
@@ -87,43 +96,7 @@ export function HelpClient({ headerAuth }: { headerAuth: HeaderAuthState }) {
       {/* ---------------------------------------------------------------- */}
       {/* Header                                                          */}
       {/* ---------------------------------------------------------------- */}
-      <header className="border-b border-[#ecdfc9] bg-white">
-        <div className="relative mx-auto flex max-w-6xl 2xl:max-w-[1500px] min-[1800px]:max-w-[1700px] items-center justify-between px-6 py-4">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.svg" alt="WonderWord AI" className="h-8 w-auto" />
-
-          <nav className="absolute left-1/2 hidden -translate-x-1/2 gap-8 text-sm font-medium text-[#4a4a4a] md:flex">
-            <a href="#" className="hover:text-[#2b2b2b]">
-              Home
-            </a>
-            <a href="#" className="hover:text-[#2b2b2b]">
-              Story Library
-            </a>
-            <a href="#" className="hover:text-[#2b2b2b]">
-              Store
-            </a>
-            <a href="#" className="hover:text-[#2b2b2b]">
-              Diagnostics
-            </a>
-          </nav>
-
-          {headerAuth.loggedIn ? (
-            <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange-300 to-pink-300 text-xs font-black text-white">
-                {headerAuth.name.charAt(0).toUpperCase()}
-              </div>
-              <span className="text-sm font-medium">{headerAuth.name}</span>
-            </div>
-          ) : (
-            <Link
-              href="/auth/login"
-              className="rounded-full border border-[#ecdfc9] px-6 py-2.5 text-sm font-bold text-[#2b2b2b] transition hover:bg-[#faf7f2]"
-            >
-              Login
-            </Link>
-          )}
-        </div>
-      </header>
+      <SiteHeader navItems={HEADER_NAV_ITEMS} right={<HeaderAuthAction auth={headerAuth} />} />
 
       <main className="mx-auto max-w-6xl 2xl:max-w-[1500px] min-[1800px]:max-w-[1700px] px-6 py-14">
         {/* -------------------------------------------------------------- */}
@@ -327,29 +300,7 @@ export function HelpClient({ headerAuth }: { headerAuth: HeaderAuthState }) {
       {/* ---------------------------------------------------------------- */}
       {/* Footer                                                           */}
       {/* ---------------------------------------------------------------- */}
-      <footer className="border-t border-[#f0e6d8] bg-white py-8">
-        <div className="mx-auto flex max-w-6xl 2xl:max-w-[1500px] min-[1800px]:max-w-[1700px] flex-col items-center justify-between gap-4 px-6 text-sm text-[#8a8a8a] md:flex-row">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <div>
-            <img src="/logo.svg" alt="WonderWord AI" className="h-6 w-auto opacity-80" />
-          <p className="ml-1">© 2026 WonderWord AI.</p>
-          </div>
-          <div className="flex gap-5">
-            <a href="#" className="hover:text-[#2b2b2b]">
-              Privacy
-            </a>
-            <a href="/terms" className="hover:text-[#2b2b2b]">
-              Terms
-            </a>
-            <a href="#" className="hover:text-[#2b2b2b]">
-              Support
-            </a>
-            <a href="#" className="hover:text-[#2b2b2b]">
-              About Us
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

@@ -9,6 +9,16 @@ import { useChildSession } from "@/components/child/ChildSessionContext";
 import { useCreateSession, useOpenSessions } from "@/hooks/useSessions";
 import { switchToParent, switchToSibling } from "@/app/profiles/actions";
 import { signOut } from "@/app/auth/actions";
+import { SiteHeader, type SiteNavItem } from "@/components/shared/SiteHeader";
+import { SiteFooter } from "@/components/shared/SiteFooter";
+import { HeaderUserBadge } from "@/components/shared/HeaderUserBadge";
+
+const HEADER_NAV_ITEMS: SiteNavItem[] = [
+  { label: "Home", href: "#", active: true },
+  { label: "Story Library", href: "#" },
+  { label: "Store", href: "#" },
+  { label: "Diagnostics", href: "#" },
+];
 
 const uuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
@@ -163,34 +173,15 @@ export function ChildHomeClient({
 
   return (
     <div className="min-h-screen bg-[#FDFAF5] text-[#2b2b2b]">
-      {/* ---------------------------------------------------------------- */}
-      {/* Header                                                          */}
-      {/* ---------------------------------------------------------------- */}
-      <header className="border-b border-[#ecdfc9] bg-white">
-        <div className="mx-auto flex max-w-6xl 2xl:max-w-[1500px] min-[1800px]:max-w-[1700px] items-center justify-between px-6 py-4">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.svg" alt="WonderWord AI" className="h-8 w-auto" />
-
-          <nav className="absolute left-1/2 hidden -translate-x-1/2 gap-8 text-sm font-medium text-[#4a4a4a] md:flex">
-            <a href="#" className="border-b-2 border-[#a3352b] pb-1 font-bold text-[#2b2b2b]">
-              Home
-            </a>
-            <a href="#" className="hover:text-[#2b2b2b]">Story Library</a>
-            <a href="#" className="hover:text-[#2b2b2b]">Store</a>
-            <a href="#" className="hover:text-[#2b2b2b]">Diagnostics</a>
-          </nav>
-
+      <SiteHeader
+        navItems={HEADER_NAV_ITEMS}
+        right={
           <div className="flex items-center gap-3">
             {siblings.length > 0 ? (
               <ProfileSwitcherDropdown siblings={siblings} onSwitch={handleSwitchSibling} />
             ) : null}
 
-            <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange-300 to-pink-300 text-xs font-black text-white">
-                {childName.charAt(0).toUpperCase()}
-              </div>
-              <span className="text-sm font-medium">{childName}</span>
-            </div>
+            <HeaderUserBadge name={childName} />
 
             <button
               type="button"
@@ -209,8 +200,8 @@ export function ChildHomeClient({
               </button>
             </form>
           </div>
-        </div>
-      </header>
+        }
+      />
 
       <main className="mx-auto max-w-6xl 2xl:max-w-[1500px] min-[1800px]:max-w-[1700px] px-6 py-8">
         <section className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#ff9d4d] to-[#ff6b35] p-6 text-white shadow-sm">
@@ -361,21 +352,7 @@ export function ChildHomeClient({
         </section>
       </main>
 
-      <footer className="border-t border-[#f0e6d8] bg-white py-8">
-        <div className="mx-auto flex max-w-6xl 2xl:max-w-[1500px] min-[1800px]:max-w-[1700px] flex-col items-center justify-between gap-4 px-6 text-sm text-[#8a8a8a] md:flex-row">
-          <div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.svg" alt="WonderWord AI" className="h-6 w-auto opacity-80" />
-            <p className="ml-1">© 2026 WonderWord AI.</p>
-          </div>
-          <div className="flex gap-5">
-            <a href="#" className="hover:text-[#2b2b2b]">Privacy</a>
-            <a href="/terms" className="hover:text-[#2b2b2b]">Terms</a>
-            <a href="#" className="hover:text-[#2b2b2b]">Support</a>
-            <a href="#" className="hover:text-[#2b2b2b]">About Us</a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

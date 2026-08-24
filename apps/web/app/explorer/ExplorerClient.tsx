@@ -3,6 +3,16 @@
 import React, { useState, useRef } from "react";
 import Link from "next/link";
 import { LogOut, Volume2, VolumeX, X } from "lucide-react";
+import { SiteHeader, type SiteNavItem } from "@/components/shared/SiteHeader";
+import { SiteFooter } from "@/components/shared/SiteFooter";
+import { HeaderUserBadge } from "@/components/shared/HeaderUserBadge";
+
+const HEADER_NAV_ITEMS: SiteNavItem[] = [
+  { label: "Home", href: "#" },
+  { label: "Word Tools", href: "#", active: true },
+  { label: "Story Library", href: "#" },
+  { label: "Activities", href: "#" },
+];
 
 type DefinitionData = {
   definition: string;
@@ -160,36 +170,7 @@ export function ExplorerClient({ childName }: { childName: string }) {
 
   return (
     <div className="min-h-screen bg-[#FDFAF5] text-[#2b2b2b] flex flex-col justify-between font-body">
-      <header className="border-b border-[#ecdfc9] bg-white">
-        <div className="mx-auto flex max-w-6xl 2xl:max-w-[1500px] min-[1800px]:max-w-[1700px] items-center justify-between px-6 py-4">
-          <Link href="/">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.svg" alt="WonderWord AI" className="h-8 w-auto cursor-pointer" />
-          </Link>
-
-          <nav className="absolute left-1/2 hidden -translate-x-1/2 gap-8 text-sm font-medium text-[#4a4a4a] md:flex">
-            <a href="#" className="hover:text-[#2b2b2b]">
-              Home
-            </a>
-            <a href="#" className="border-b-2 border-[#a3352b] pb-1 font-bold text-[#2b2b2b]">
-              Word Tools
-            </a>
-            <a href="#" className="hover:text-[#2b2b2b]">
-              Story Library
-            </a>
-            <a href="#" className="hover:text-[#2b2b2b]">
-              Activities
-            </a>
-          </nav>
-
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange-300 to-pink-300 text-xs font-black text-white">
-              {childName.charAt(0).toUpperCase()}
-            </div>
-            <span className="text-sm font-medium">{childName}</span>
-          </div>
-        </div>
-      </header>
+      <SiteHeader navItems={HEADER_NAV_ITEMS} right={<HeaderUserBadge name={childName} />} />
 
       <main className="flex-1 w-full max-w-[1280px] mx-auto px-6 md:px-[200px] py-12 flex flex-col justify-center items-start">
         <div className="w-full flex justify-start mb-6">
@@ -318,29 +299,7 @@ export function ExplorerClient({ childName }: { childName: string }) {
         )}
       </main>
 
-      <footer className="border-t border-[#f0e6d8] bg-white py-8">
-        <div className="mx-auto flex max-w-6xl 2xl:max-w-[1500px] min-[1800px]:max-w-[1700px] flex-col items-center justify-between gap-4 px-6 text-sm text-[#8a8a8a] md:flex-row">
-          <div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.svg" alt="WonderWord AI" className="h-6 w-auto opacity-80" />
-            <p className="ml-1 mt-1">© 2026 WonderWord AI.</p>
-          </div>
-          <div className="flex gap-5">
-            <Link href="/privacy" className="hover:text-[#2b2b2b]">
-              Privacy
-            </Link>
-            <Link href="/terms" className="hover:text-[#2b2b2b]">
-              Terms
-            </Link>
-            <a href="#" className="hover:text-[#2b2b2b]">
-              Support
-            </a>
-            <a href="#" className="hover:text-[#2b2b2b]">
-              About Us
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

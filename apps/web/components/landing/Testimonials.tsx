@@ -22,13 +22,20 @@ const reviews = [
 export function Testimonials() {
   return (
     <section className="px-6 sm:px-12 py-20">
-      <h2 className="text-center text-[32px] font-black text-[#1A1A2E]">Parents Love WonderWord</h2>
+      <h2 className="text-center text-[32px] font-bold font-serif text-[#a3352b]">
+        Parents Love WonderWord
+      </h2>
 
       <div className="mt-12 grid sm:grid-cols-3 gap-5 max-w-5xl mx-auto">
         {reviews.map((r) => (
-          <div key={r.name} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div
+            key={r.name}
+            className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"
+          >
             <p className="text-[#F5A623] text-sm tracking-wide">★★★★★</p>
-            <p className="mt-3 text-sm leading-6 italic text-gray-600">&ldquo;{r.quote}&rdquo;</p>
+            <p className="mt-3 text-sm leading-6 italic text-gray-600">
+              &ldquo;{r.quote}&rdquo;
+            </p>
             <div className="mt-5 flex items-center gap-2">
               <span className={`w-8 h-8 rounded-full ${r.avatarColor}`} />
               <p className="text-sm font-bold text-gray-800">{r.name}</p>

@@ -3,22 +3,26 @@ const steps = [
   {
     number: 2,
     emoji: "🎙️",
-    title: "Your Child Reads Aloud",
-    desc: "Our AI listens and turns the page into an interactive story in real time",
+    title: "Read It Aloud",
+    desc: "Your child reads the page out loud and submits the recording. If they stumble on a word, WonderWord turns it into a quick, playful practice moment.",
   },
   {
     number: 3,
     emoji: "📊",
     title: "You Get a Progress Report",
-    desc: "Every two weeks, a clear report lands in your inbox — no jargon, just insights",
+    desc: "Every two weeks, a clear report appears right in your Parent Dashboard — no jargon, just insights.",
   },
 ];
 
 export function HowItWorks() {
   return (
     <section id="how-it-works" className="px-6 sm:px-12 py-20">
-      <h2 className="text-center text-[32px] font-black text-[#1A1A2E]">How It Works</h2>
-      <p className="mt-2 text-center text-[15px] text-gray-500">3 simple steps — no tech skills needed</p>
+      <h2 className="text-center text-[32px] font-serif text-[#a3352b] font-bold">
+        How It Works
+      </h2>
+      <p className="mt-2 text-center text-[15px] text-gray-500">
+        3 simple steps — no tech skills needed
+      </p>
 
       <div className="mt-14 relative max-w-4xl mx-auto">
         <div className="hidden sm:block absolute top-6 left-[16%] right-[16%] border-t-2 border-dashed border-[#E8604F]/40" />
@@ -30,7 +34,9 @@ export function HowItWorks() {
               </div>
               <p className="mt-4 text-3xl">{s.emoji}</p>
               <h3 className="mt-3 font-black text-[#1A1A2E]">{s.title}</h3>
-              <p className="mt-2 text-sm leading-5 text-gray-500 max-w-[220px] mx-auto">{s.desc}</p>
+              <p className="mt-2 text-sm leading-5 text-gray-500 max-w-[220px] mx-auto">
+                {s.desc}
+              </p>
             </div>
           ))}
         </div>
