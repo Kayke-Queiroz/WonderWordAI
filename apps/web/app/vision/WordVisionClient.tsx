@@ -3,6 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import { LogOut, Palette } from "lucide-react";
+import { SiteHeader, type SiteNavItem } from "@/components/shared/SiteHeader";
+import { SiteFooter } from "@/components/shared/SiteFooter";
+import { HeaderUserBadge } from "@/components/shared/HeaderUserBadge";
+
+const HEADER_NAV_ITEMS: SiteNavItem[] = [
+  { label: "Home", href: "/child" },
+  { label: "Story Library", href: "#" },
+  { label: "Store", href: "#" },
+  { label: "Diagnostics", href: "#" },
+];
 
 export function WordVisionClient({ childName }: { childName: string }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -57,26 +67,7 @@ export function WordVisionClient({ childName }: { childName: string }) {
       {/* ---------------------------------------------------------------- */}
       {/* Header                                                          */}
       {/* ---------------------------------------------------------------- */}
-      <header className="border-b border-[#ecdfc9] bg-white">
-        <div className="mx-auto flex max-w-6xl 2xl:max-w-[1500px] min-[1800px]:max-w-[1700px] items-center justify-between px-6 py-4">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.svg" alt="WonderWord AI" className="h-8 w-auto" />
-
-          <nav className="absolute left-1/2 hidden -translate-x-1/2 gap-8 text-sm font-medium text-[#4a4a4a] md:flex">
-            <a href="/child" className="hover:text-[#2b2b2b]">Home</a>
-            <a href="#" className="hover:text-[#2b2b2b]">Story Library</a>
-            <a href="#" className="hover:text-[#2b2b2b]">Store</a>
-            <a href="#" className="hover:text-[#2b2b2b]">Diagnostics</a>
-          </nav>
-
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange-300 to-pink-300 text-xs font-black text-white">
-              {childName.charAt(0).toUpperCase()}
-            </div>
-            <span className="text-sm font-medium">{childName}</span>
-          </div>
-        </div>
-      </header>
+      <SiteHeader navItems={HEADER_NAV_ITEMS} right={<HeaderUserBadge name={childName} />} />
 
       {/* ---------------------------------------------------------------- */}
       {/* Main Content                                                    */}
@@ -182,21 +173,7 @@ export function WordVisionClient({ childName }: { childName: string }) {
       {/* ---------------------------------------------------------------- */}
       {/* Footer                                                           */}
       {/* ---------------------------------------------------------------- */}
-      <footer className="border-t border-[#f0e6d8] bg-white py-8">
-        <div className="mx-auto flex max-w-6xl 2xl:max-w-[1500px] min-[1800px]:max-w-[1700px] flex-col items-center justify-between gap-4 px-6 text-sm text-[#8a8a8a] md:flex-row">
-          <div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.svg" alt="WonderWord AI" className="h-6 w-auto opacity-80" />
-            <p className="ml-1 mt-1">© 2026 WonderWord AI.</p>
-          </div>
-          <div className="flex gap-5">
-            <Link href="/privacy" className="hover:text-[#2b2b2b]">Privacy</Link>
-            <Link href="/terms" className="hover:text-[#2b2b2b]">Terms</Link>
-            <a href="#" className="hover:text-[#2b2b2b]">Support</a>
-            <a href="#" className="hover:text-[#2b2b2b]">About Us</a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

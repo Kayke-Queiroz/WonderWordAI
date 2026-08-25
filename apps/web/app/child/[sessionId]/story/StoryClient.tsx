@@ -9,6 +9,16 @@ import {
   BookOpen,
   LogOut
 } from "lucide-react";
+import { SiteHeader, type SiteNavItem } from "@/components/shared/SiteHeader";
+import { SiteFooter } from "@/components/shared/SiteFooter";
+import { HeaderUserBadge } from "@/components/shared/HeaderUserBadge";
+
+const HEADER_NAV_ITEMS: SiteNavItem[] = [
+  { label: "Home", href: "/child" },
+  { label: "Story Kids" },
+  { label: "Word Explorer", href: "/explorer" },
+  { label: "Store", href: "#", disabled: true },
+];
 
 // Define the steps for our story flow
 type FlowStep = "loading" | "story";
@@ -262,34 +272,9 @@ function ThemedStoryContent({ childName }: { childName: string }) {
       <div className="absolute right-[8%] top-[45%] text-3xl opacity-25 select-none hidden lg:block z-0 pointer-events-none">✏️</div>
 
       {/* Header */}
-      <header className="border-b border-[#ecdfc9] bg-white z-10">
-        <div className="mx-auto flex max-w-6xl 2xl:max-w-[1500px] min-[1800px]:max-w-[1700px] items-center justify-between px-6 py-4">
-          <Link href="/child">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.svg" alt="WonderWord AI" className="h-8 w-auto cursor-pointer" />
-          </Link>
-
-          <nav className="absolute left-1/2 hidden -translate-x-1/2 gap-8 text-sm font-medium text-[#4a4a4a] md:flex">
-            <Link href="/child" className="hover:text-[#2b2b2b]">
-              Home
-            </Link>
-            <span className="border-b-2 border-[#a3352b] pb-1 font-bold text-[#2b2b2b] cursor-default">
-              Story Kids
-            </span>
-            <Link href="/explorer" className="hover:text-[#2b2b2b]">
-              Word Explorer
-            </Link>
-            <a href="#" className="hover:text-[#2b2b2b] opacity-50 cursor-not-allowed">
-              Store
-            </a>
-          </nav>
-
-          <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-full bg-gradient-to-br from-orange-300 to-pink-300" />
-            <span className="text-sm font-medium">{childName}</span>
-          </div>
-        </div>
-      </header>
+      <div className="z-10">
+        <SiteHeader navItems={HEADER_NAV_ITEMS} logoHref="/child" right={<HeaderUserBadge name={childName} />} />
+      </div>
 
       {/* Main Content Workspace */}
       <main className="flex-1 w-full max-w-[1280px] mx-auto px-6 py-10 flex flex-col justify-center z-10 relative">
@@ -417,29 +402,9 @@ function ThemedStoryContent({ childName }: { childName: string }) {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-[#f0e6d8] bg-white py-8 z-10">
-        <div className="mx-auto flex max-w-6xl 2xl:max-w-[1500px] min-[1800px]:max-w-[1700px] flex-col items-center justify-between gap-4 px-6 text-sm text-[#8a8a8a] md:flex-row">
-          <div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.svg" alt="WonderWord AI" className="h-6 w-auto opacity-80" />
-            <p className="ml-1 mt-1">© 2026 WonderWord AI.</p>
-          </div>
-          <div className="flex gap-5">
-            <Link href="/privacy" className="hover:text-[#2b2b2b]">
-              Privacy
-            </Link>
-            <Link href="/terms" className="hover:text-[#2b2b2b]">
-              Terms
-            </Link>
-            <a href="#" className="hover:text-[#2b2b2b] opacity-50 cursor-not-allowed">
-              Support
-            </a>
-            <a href="#" className="hover:text-[#2b2b2b] opacity-50 cursor-not-allowed">
-              About Us
-            </a>
-          </div>
-        </div>
-      </footer>
+      <div className="z-10">
+        <SiteFooter />
+      </div>
     </div>
   );
 }
