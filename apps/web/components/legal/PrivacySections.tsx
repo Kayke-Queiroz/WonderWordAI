@@ -17,6 +17,7 @@ import {
   SiRender,
   SiVercel,
 } from "@icons-pack/react-simple-icons";
+import { Button } from "@/components/shared/Button";
 
 const partners = [
   { name: "Supabase", Icon: SiSupabase, color: "#3ECF8E" },
@@ -258,14 +259,14 @@ export function PrivacyContactSection() {
       </p>
 
       <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <button className="flex items-center gap-2 rounded-full bg-[#a3352b] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#8c2c23]">
+        <Button>
           <Mail className="h-4 w-4" />
           Email Privacy Officer
-        </button>
-        <button className="flex items-center gap-2 rounded-full bg-[#12695a] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#0f574a]">
+        </Button>
+        <Button variant="teal">
           <MessageCircle className="h-4 w-4" />
           Live Help Desk
-        </button>
+        </Button>
       </div>
     </section>
   );

@@ -18,6 +18,7 @@ import type { HeaderAuthState } from "@/lib/auth/server";
 import { SiteHeader, type SiteNavItem } from "@/components/shared/SiteHeader";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { HeaderAuthAction } from "@/components/shared/HeaderAuthAction";
+import { Button } from "@/components/shared/Button";
 
 const HEADER_NAV_ITEMS: SiteNavItem[] = [
   { label: "Home", href: "#" },
@@ -239,13 +240,13 @@ export function HelpClient({ headerAuth }: { headerAuth: HeaderAuthState }) {
               />
             </div>
 
-            <button
+            <Button
               type="submit"
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-[#a3352b] py-3 text-sm font-semibold text-white transition hover:bg-[#8c2c23]"
+              fullWidth
             >
               Send Message
               <Send className="h-4 w-4" />
-            </button>
+            </Button>
           </form>
         </section>
 

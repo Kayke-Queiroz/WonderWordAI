@@ -1,4 +1,5 @@
 import { ShieldCheck, CheckCircle2, Mail } from "lucide-react";
+import { Button } from "@/components/shared/Button";
 
 export function AcceptanceSection() {
   return (
@@ -175,10 +176,13 @@ export function TermsContactSection() {
           reader.
         </p>
       </div>
-      <button className="flex shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#c1523a] shadow-sm transition hover:bg-white/90">
+      <Button
+        variant="outline"
+        className="shrink-0 border-transparent bg-white text-[#c1523a] shadow-[0_4px_0_0_#f3c0b1] hover:bg-white/90"
+      >
         <Mail className="h-4 w-4" />
         Contact Support
-      </button>
+      </Button>
     </section>
   );
 }

@@ -6,6 +6,7 @@ import { Eye, EyeOff } from "lucide-react";
 import OnboardingShell from "@/components/onboarding/OnboardingShell";
 import { useOnboarding } from "@/components/onboarding/OnboardingContext";
 import { checkParentEmailAvailable } from "@/app/onboarding/actions";
+import { Button } from "@/components/shared/Button";
 
 const CHILD_COUNT_OPTIONS = ["1", "2", "3", "4+"];
 
@@ -134,13 +135,14 @@ export default function OnboardingStepOne() {
           </div>
         </div>
 
-        <button
+        <Button
           type="submit"
           disabled={!canContinue || isChecking}
-          className="mt-2 w-full rounded-full bg-[#a3352b] py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#8c2c23] disabled:cursor-not-allowed disabled:opacity-40"
+          fullWidth
+          className="mt-2 disabled:cursor-not-allowed disabled:opacity-40"
         >
           {isChecking ? "Checking..." : "Continue →"}
-        </button>
+        </Button>
 
         <p className="text-center text-sm text-[#8a8a8a]">
           Already have an account?{" "}

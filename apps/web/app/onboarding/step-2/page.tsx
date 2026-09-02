@@ -13,6 +13,7 @@ import {
 import OnboardingShell from "@/components/onboarding/OnboardingShell";
 import MascotBubble from "@/components/onboarding/MascotBubble";
 import { useOnboarding } from "@/components/onboarding/OnboardingContext";
+import { Button } from "@/components/shared/Button";
 
 const READING_LEVELS = [
   { id: "starting", label: "Just starting", icon: Baby },
@@ -169,21 +170,21 @@ export default function OnboardingStepTwo() {
       </button>
 
       <div className="mt-8 flex items-center justify-end gap-3">
-        <button
+        <Button
           type="button"
           onClick={() => router.push("/onboarding/step-1")}
-          className="rounded-full border border-[#ece6da] px-6 py-3 text-sm font-semibold text-[#5a5a5a] transition hover:bg-[#faf7f2]"
+          variant="outline"
         >
           Back
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
           onClick={handleContinue}
           disabled={!canContinue}
-          className="rounded-full bg-[#a3352b] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#8c2c23] disabled:cursor-not-allowed disabled:opacity-40"
+          className="disabled:cursor-not-allowed disabled:opacity-40"
         >
           Continue →
-        </button>
+        </Button>
       </div>
     </OnboardingShell>
   );

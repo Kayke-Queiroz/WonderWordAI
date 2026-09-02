@@ -6,6 +6,7 @@ import { LogOut, Palette } from "lucide-react";
 import { SiteHeader, type SiteNavItem } from "@/components/shared/SiteHeader";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { HeaderUserBadge } from "@/components/shared/HeaderUserBadge";
+import { Button } from "@/components/shared/Button";
 
 const HEADER_NAV_ITEMS: SiteNavItem[] = [
   { label: "Home", href: "/child" },
@@ -100,14 +101,16 @@ export function WordVisionClient({ childName }: { childName: string }) {
                 disabled={isLoading}
                 className="flex-1 bg-transparent pl-3 text-xl font-medium text-[#2b2b2b] placeholder-slate-400 outline-none"
               />
-              <button
+              <Button
                 type="submit"
                 disabled={isLoading || !searchTerm.trim()}
-                className="flex items-center gap-2 rounded-full bg-[#ff6868] px-6 py-3 text-base font-extrabold text-white transition hover:bg-[#ef5353] disabled:cursor-not-allowed disabled:opacity-50"
+                variant="rose"
+                size="lg"
+                className="disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <Palette className="h-5 w-5" />
                 {isLoading ? "Drawing..." : "Generate Image"}
-              </button>
+              </Button>
             </div>
           </form>
         </div>
@@ -140,31 +143,38 @@ export function WordVisionClient({ childName }: { childName: string }) {
             </div>
 
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              <a
+              <Button
+                as="a"
                 href={imageUrl}
                 download
-                className="rounded-full border border-[#ecdfc9] bg-white px-5 py-2.5 text-sm font-bold text-[#5a5a5a] transition hover:bg-[#faf7f2]"
+                variant="outline"
+                size="sm"
+                className="font-bold"
               >
                 Download
-              </a>
-              <button
+              </Button>
+              <Button
                 type="button"
                 onClick={() => {
                   if (navigator.share) {
                     navigator.share({ title: submittedWord, url: imageUrl }).catch(() => {});
                   }
                 }}
-                className="rounded-full border border-[#ecdfc9] bg-white px-5 py-2.5 text-sm font-bold text-[#5a5a5a] transition hover:bg-[#faf7f2]"
+                variant="outline"
+                size="sm"
+                className="font-bold"
               >
                 Share
-              </button>
-              <button
+              </Button>
+              <Button
                 type="button"
                 onClick={handleTryAnother}
-                className="rounded-full bg-[#4ecdc4] px-5 py-2.5 text-sm font-extrabold text-white transition hover:bg-[#3dbdb3]"
+                variant="mint"
+                size="sm"
+                className="font-extrabold"
               >
                 Try Another Word
-              </button>
+              </Button>
             </div>
           </div>
         ) : null}

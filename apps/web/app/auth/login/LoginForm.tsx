@@ -6,6 +6,7 @@ import { initialLoginState, type LoginActionState } from "@/app/auth/login/state
 import { PasswordInput } from "@/components/auth/PasswordInput";
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { Button } from "@/components/shared/Button";
 import Link from "next/link";
 
 type LoginFormProps = {
@@ -16,13 +17,16 @@ function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <button
+    <Button
       type="submit"
       disabled={pending}
-      className="w-full min-h-12 rounded-xl bg-red-400 px-5 text-base font-black text-white shadow-md transition hover:bg-red-500 disabled:cursor-wait disabled:bg-gray-300"
+      variant="rose"
+      size="lg"
+      fullWidth
+      className="rounded-xl disabled:cursor-wait disabled:bg-gray-300 disabled:shadow-none"
     >
       {pending ? "Signing in..." : "Log In 🚀"}
-    </button>
+    </Button>
   );
 }
 
@@ -63,14 +67,16 @@ export function LoginForm({ initialError }: LoginFormProps) {
       <p className="mt-2 text-center text-sm text-gray-500">
         Log in to check on your child&apos;s progress.
       </p>
-      <button
+      <Button
         type="button"
         disabled={googleLoading}
         onClick={handleGoogleSignIn}
-        className="mt-6 w-full min-h-12 rounded-xl border border-gray-200 text-sm font-bold text-gray-700 hover:bg-gray-50 transition disabled:opacity-50 disabled:cursor-not-allowed"
+        variant="outline"
+        fullWidth
+        className="mt-6 rounded-xl border-gray-200 text-gray-700 disabled:cursor-not-allowed disabled:shadow-none"
       >
         {googleLoading ? "Connecting to Google..." : "Continue with Google"}
-      </button>
+      </Button>
 
       <div className="my-5 flex items-center gap-3">
         <div className="h-px flex-1 bg-gray-200" />

@@ -13,6 +13,7 @@ import { ApiError } from "@/lib/api/client";
 import type { AuthContext } from "@/lib/auth/types";
 import { normalizeKaraokeWord, type KaraokeTimeline } from "@/lib/karaoke/timeline";
 import type { SessionAudioData, SessionAudioMiscue } from "@/lib/audio/schema";
+import { Button } from "@/components/shared/Button";
 
 type ChildReadingShellProps = {
   auth: AuthContext;
@@ -206,12 +207,14 @@ export function ChildReadingShell({ auth, childName, routeSessionId }: ChildRead
               <p className="mt-2 text-sm font-semibold leading-6 text-[#6f6f6f]">
                 Rescan worksheet or start a new reading session.
               </p>
-                <a
+               <Button
+                 as="a"
                 href="/child"
-                className="mt-4 inline-block rounded-full bg-[#ff6868] px-6 py-3 text-sm font-extrabold text-white transition hover:bg-[#ef5353]"
+                variant="rose"
+                className="mt-4 inline-flex font-extrabold"
               >
                 Go to Home
-              </a>
+              </Button>
             </div>
           ) : (
             <>
@@ -246,21 +249,23 @@ export function ChildReadingShell({ auth, childName, routeSessionId }: ChildRead
               {hasResults ? (
                 <div className="flex flex-wrap justify-center gap-4 mb-4">
                   {sessionMiscues.length > 0 ? (
-                    <button
+                    <Button
                       type="button"
                       onClick={() => setShowCorrectionModal(true)}
-                      className="rounded-full bg-[#ff6868] hover:bg-[#ef5353] px-8 py-3 text-base font-black text-white shadow-sm transition"
+                      variant="rose"
+                      size="lg"
                     >
                       Practice my words ({sessionMiscues.length})
-                    </button>
+                    </Button>
                   ) : null}
-                  <button
+                  <Button
                     type="button"
                     onClick={goToResults}
-                    className="rounded-full bg-[#0F9C8E] hover:bg-[#0d8478] px-8 py-3 text-base font-black text-white shadow-sm transition"
+                    variant="teal"
+                    size="lg"
                   >
                     See my results →
-                  </button>
+                  </Button>
                 </div>
               ) : null}
 
@@ -357,12 +362,14 @@ function ReadingRecoveryState({ title, body }: { title: string; body: string }) 
     <div className="rounded-[24px] border border-[#ecdfc9]/60 bg-white p-10 text-center shadow-sm">
       <p className="text-lg font-extrabold leading-8 text-[#2b2b2b]">{title}</p>
       <p className="mt-2 text-sm font-semibold leading-6 text-[#6f6f6f]">{body}</p>
-      <a
+      <Button
+        as="a"
         href="/child"
-        className="mt-4 inline-block rounded-full bg-[#ff6868] px-6 py-3 text-sm font-extrabold text-white transition hover:bg-[#ef5353]"
+        variant="rose"
+        className="mt-4 inline-flex font-extrabold"
       >
         Go to Home
-      </a>
+      </Button>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { LogOut, Mic, Square, Volume2, RotateCcw, Check } from "lucide-react";
 import { chooseSupportedRecordingMimeType, stopMediaStreamTracks } from "@/lib/karaoke/timeline";
+import { Button } from "@/components/shared/Button";
 
 // The mascot has no canonical name anywhere in the codebase yet -- the mockup
 // just says "[monster name]". Kept as a single constant so renaming it later
@@ -552,46 +553,53 @@ export function ReadAloudClient({ childName }: ReadAloudClientProps) {
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
               {state === "correct" ? (
                 <>
-                  <button
+                  <Button
                     type="button"
                     onClick={resetAttempt}
-                    className="inline-flex items-center gap-2 rounded-full bg-[#0F9C8E] px-8 py-3 text-base font-black text-white shadow-sm transition hover:bg-[#0d8478]"
+                    variant="teal"
+                    size="lg"
                   >
                     <RotateCcw className="h-5 w-5" /> Try again
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     type="button"
                     onClick={() => router.push("/child")}
-                    className="inline-flex items-center gap-2 rounded-full bg-[#ff6868] px-8 py-3 text-base font-black text-white shadow-sm transition hover:bg-[#ef5353]"
+                    variant="rose"
+                    size="lg"
                   >
                     <Check className="h-5 w-5" /> Finish
-                  </button>
+                  </Button>
                 </>
               ) : (
                 <>
-                  <button
+                  <Button
                     type="button"
                     onClick={speakWord}
                     disabled={isChecking}
-                    className="inline-flex items-center gap-2 rounded-full bg-[#0F9C8E] px-8 py-3 text-base font-black text-white shadow-sm transition hover:bg-[#0d8478] disabled:opacity-50"
+                    variant="teal"
+                    size="lg"
+                    className="disabled:opacity-50"
                   >
                     <Volume2 className="h-5 w-5" /> Hear {MASCOT_NAME} say it
-                  </button>
+                  </Button>
 
                   {state === "exhausted" ? (
-                    <button
+                    <Button
                       type="button"
                       onClick={() => router.push("/child")}
-                      className="inline-flex items-center gap-2 rounded-full bg-[#ff6868] px-8 py-3 text-base font-black text-white shadow-sm transition hover:bg-[#ef5353]"
+                      variant="rose"
+                      size="lg"
                     >
                       <Check className="h-5 w-5" /> Finish
-                    </button>
+                    </Button>
                   ) : (
-                    <button
+                    <Button
                       type="button"
                       onClick={isRecording ? stopRecording : startRecording}
                       disabled={isChecking}
-                      className={`inline-flex items-center gap-2 rounded-full px-8 py-3 text-base font-black text-white shadow-sm transition disabled:opacity-50 ${
+                      variant={isRecording ? "coral" : "rose"}
+                      size="lg"
+                      className={`disabled:opacity-50 ${
                         isRecording ? "bg-[#E8604F] hover:bg-[#d4523f]" : "bg-[#ff6868] hover:bg-[#ef5353]"
                       }`}
                     >
@@ -605,7 +613,7 @@ export function ReadAloudClient({ childName }: ReadAloudClientProps) {
                           {state === "almost" ? "Try again" : "Try it!"}
                         </>
                       )}
-                    </button>
+                    </Button>
                   )}
                 </>
               )}
