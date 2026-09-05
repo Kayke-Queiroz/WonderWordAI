@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import KaraokeHighlighter from "@/components/child/KaraokeHighlighter";
+import { Button } from "@/components/shared/Button";
 
 type WordTiming = {
   word: string;
@@ -145,12 +146,15 @@ export default function WorksheetDisplay({
           <div className="w-24 h-24 rounded-full bg-blue-50 flex items-center justify-center text-4xl">
             👹
           </div>
-          <button
+          <Button
+            type="button"
             onClick={handleToggle}
-            className="flex items-center gap-3 bg-[#E8604F] hover:bg-[#d9543f] text-white font-black rounded-full px-8 py-4 min-h-[48px] transition"
+            variant="peach"
+            size="lg"
+            className="gap-3"
           >
             🎤 {isRecording ? "Stop Reading" : "Start Read It Aloud"}
-          </button>
+          </Button>
         </div>
       </div>
     </div>

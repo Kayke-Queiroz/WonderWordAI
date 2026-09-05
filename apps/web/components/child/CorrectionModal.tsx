@@ -5,6 +5,7 @@ import type { SessionAudioMiscue } from "@/lib/audio/schema";
 import { StoryTab, renderStoryText } from "@/components/child/StoryTab";
 import { useWordStory } from "@/hooks/useWordStory";
 import { chooseSupportedRecordingMimeType, stopMediaStreamTracks } from "@/lib/karaoke/timeline";
+import { Button } from "@/components/shared/Button";
 
 type Tab = "story" | "phonics" | "listen" | "practice";
 
@@ -174,13 +175,15 @@ export default function CorrectionModal({
 
       {/* Footer action */}
       <div className="px-5 pb-5">
-        <button
+        <Button
           type="button"
           onClick={handleContinue}
-          className="w-full min-h-[48px] bg-[#008C9A] text-white rounded-xl font-semibold"
+          variant="ocean"
+          fullWidth
+          className="rounded-xl"
         >
           {footerLabel}
-        </button>
+        </Button>
       </div>
     </div>
   );

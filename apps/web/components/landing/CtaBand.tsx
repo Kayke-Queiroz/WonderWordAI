@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Button } from "@/components/shared/Button";
 
 export function CtaBand() {
   return (
@@ -7,12 +7,9 @@ export function CtaBand() {
         Ready to make reading feel like an adventure?
       </h2>
 
-      <Link
-        href="/auth/login"
-        className="mt-7 inline-block rounded-full bg-white text-[#9B2335] font-black px-8 py-3.5 hover:bg-gray-100"
-      >
+      <Button as="a" href="/auth/login" variant="whiteMaroon" size="lg" className="mt-7">
         Start Free Today
-      </Link>
+      </Button>
       <p className="mt-3 text-xs text-white/80 font-semibold">
         No credit card required
       </p>

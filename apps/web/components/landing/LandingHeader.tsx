@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { SiteHeader, type SiteNavItem } from "@/components/shared/SiteHeader";
+import { Button } from "@/components/shared/Button";
 
 const NAV_ITEMS: SiteNavItem[] = [
   { label: "Home", href: "/", active: true },
@@ -12,12 +12,9 @@ export function LandingHeader() {
     <SiteHeader
       navItems={NAV_ITEMS}
       right={
-        <Link
-          href="/auth/login"
-          className="rounded-full border border-[#ecdfc9] px-6 py-2.5 text-sm font-bold text-[#2b2b2b] transition hover:bg-[#faf7f2]"
-        >
+        <Button as="a" href="/auth/login" variant="outline" size="sm">
           Login
-        </Link>
+        </Button>
       }
     />
   );

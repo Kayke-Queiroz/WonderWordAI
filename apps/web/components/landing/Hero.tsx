@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Button } from "@/components/shared/Button";
 
 export function Hero() {
   return (
@@ -19,18 +19,12 @@ export function Hero() {
           </p>
 
           <div className="mt-7 flex flex-wrap gap-4">
-            <Link
-              href="#pricing"
-              className="rounded-full bg-[#E8604F] px-7 py-3.5 text-white font-black text-[15px] hover:bg-[#d9543f]"
-            >
+            <Button as="a" href="#pricing" variant="peach" size="lg">
               Start Free Trial
-            </Link>
-            <Link
-              href="/auth/login"
-              className="rounded-full bg-[#B9EFE0] px-7 py-3.5 text-gray-800 font-black text-[15px] hover:bg-[#a5e8d5]"
-            >
+            </Button>
+            <Button as="a" href="/auth/login" variant="pastelMint" size="lg">
               Log In
-            </Link>
+            </Button>
           </div>
 
           <p className="mt-6 text-[13px] font-bold text-[#0F9C8E]">

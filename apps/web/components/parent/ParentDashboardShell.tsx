@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { SignOutButton } from "@/components/auth/SignOutButton";
+import { Button } from "@/components/shared/Button";
 import { useChildReport } from "@/hooks/useChildReport";
 import { useParentDashboard } from "@/hooks/useParentDashboard";
 // ticket: integrate playful practice recommendations into parent dashboard
@@ -445,12 +445,9 @@ export function ParentDashboardShell({ auth }: ParentDashboardShellProps) {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Link
-              href="/profiles"
-              className="rounded-full border border-[#ecdfc9] px-3 py-1.5 text-xs font-bold text-[#5a5a5a] transition hover:bg-[#faf7f2]"
-            >
+            <Button as="a" href="/profiles" variant="outline" size="sm">
               Switch to Child
-            </Link>
+            </Button>
 
             <div className="hidden text-right text-xs leading-5 text-[#8a8a8a] sm:block">
               <p className="max-w-52 truncate font-bold text-[#2b2b2b]">{auth.email}</p>
@@ -459,12 +456,9 @@ export function ParentDashboardShell({ auth }: ParentDashboardShellProps) {
               </p>
             </div>
             <form action={signOut}>
-              <button
-                type="submit"
-                className="rounded-full border border-[#ecdfc9] px-3 py-1.5 text-xs font-bold text-[#5a5a5a] transition hover:bg-[#faf7f2]"
-              >
+              <Button type="submit" variant="outline" size="sm">
                 Log Out
-              </button>
+              </Button>
             </form>
           </div>
         </div>
@@ -501,12 +495,9 @@ export function ParentDashboardShell({ auth }: ParentDashboardShellProps) {
                 Open the word explorer to look up meanings, practice new vocabulary, and keep reading fun.
               </p>
             </div>
-            <Link
-              href="/explorer"
-              className="inline-flex items-center rounded-full bg-rose-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-rose-600"
-            >
+            <Button as="a" href="/explorer" variant="rose500" size="sm">
               Open Word Tools
-            </Link>
+            </Button>
           </div>
         </section>
 

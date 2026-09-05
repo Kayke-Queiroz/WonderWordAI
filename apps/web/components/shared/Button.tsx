@@ -2,7 +2,18 @@
 
 import type React from "react";
 
-type ButtonVariant = "coral" | "teal" | "rose" | "mint" | "outline";
+type ButtonVariant =
+  | "coral"
+  | "teal"
+  | "rose"
+  | "mint"
+  | "outline"
+  | "peach"
+  | "pastelMint"
+  | "whiteMaroon"
+  | "sunset"
+  | "rose500"
+  | "ocean";
 type ButtonSize = "sm" | "md" | "lg";
 
 type SharedProps = {
@@ -40,6 +51,18 @@ const VARIANT_CLASSES: Record<ButtonVariant, string> = {
     "bg-[#4ecdc4] text-white shadow-[0_4px_0_0_#35ada5] hover:bg-[#3dbdb3] active:shadow-none",
   outline:
     "border border-[#ecdfc9] bg-white text-[#5a5a5a] shadow-[0_4px_0_0_#e5dccf] hover:bg-[#faf7f2] active:shadow-none",
+  peach:
+    "bg-[#E8604F] text-white shadow-[0_4px_0_0_#b54b3e] hover:bg-[#d9543f] active:shadow-none",
+  pastelMint:
+    "bg-[#B9EFE0] text-gray-800 shadow-[0_4px_0_0_#8fbaae] hover:bg-[#a5e8d5] active:shadow-none",
+  whiteMaroon:
+    "bg-white text-[#9B2335] shadow-[0_4px_0_0_#e8d4d4] hover:bg-gray-100 active:shadow-none",
+  sunset:
+    "bg-coral text-white shadow-[0_4px_0_0_#c04f3b] hover:bg-[#de5b44] active:shadow-none",
+  rose500:
+    "bg-[#f43f5e] text-white shadow-[0_4px_0_0_#be3149] hover:bg-[#e11d48] active:shadow-none",
+  ocean:
+    "bg-[#008C9A] text-white shadow-[0_4px_0_0_#006d78] hover:bg-[#00727d] active:shadow-none",
 };
 
 const SIZE_CLASSES: Record<ButtonSize, string> = {
