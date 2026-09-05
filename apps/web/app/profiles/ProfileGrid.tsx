@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Plus, Lock, LayoutDashboard, HelpCircle, X } from "lucide-react";
 import { startChildSession, addChildProfile } from "./actions";
+import { Button } from "@/components/shared/Button";
 
 type ChildProfileRow = {
   child_id: string;
@@ -239,13 +240,14 @@ function AddChildModal({ onClose, onCreated }: { onClose: () => void; onCreated:
 
           {error ? <p className="text-sm font-bold text-[#a3352b]">{error}</p> : null}
 
-          <button
+          <Button
             type="submit"
             disabled={isSubmitting || !nickname.trim() || !age}
-            className="w-full rounded-full bg-[#a3352b] py-3 text-sm font-semibold text-white transition hover:bg-[#8c2c23] disabled:cursor-not-allowed disabled:opacity-40"
+            fullWidth
+            className="disabled:cursor-not-allowed disabled:opacity-40"
           >
             {isSubmitting ? "Adding..." : "Add Child"}
-          </button>
+          </Button>
         </form>
       </div>
     </div>

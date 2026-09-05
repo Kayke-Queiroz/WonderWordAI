@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { BookOpen, CheckCircle2, LogOut, Target } from "lucide-react";
 import { useChildSession } from "@/components/child/ChildSessionContext";
 import type { AuthContext } from "@/lib/auth/types";
+import { Button } from "@/components/shared/Button";
 
 type ReadingResultsShellProps = {
   auth: AuthContext;
@@ -132,12 +133,14 @@ export function ReadingResultsShell({ auth }: ReadingResultsShellProps) {
               <p className="text-lg font-extrabold leading-8">
                 No results yet. Finish a reading session to see how it went.
               </p>
-              <a
+              <Button
+                as="a"
                 href="/child"
-                className="mt-4 inline-block rounded-full bg-[#ff6868] px-6 py-3 text-sm font-extrabold text-white transition hover:bg-[#ef5353]"
+                variant="rose"
+                className="mt-4 inline-flex font-extrabold"
               >
                 Go to Home
-              </a>
+              </Button>
             </div>
           </>
         ) : (
@@ -181,13 +184,14 @@ export function ReadingResultsShell({ auth }: ReadingResultsShellProps) {
               ) : null}
 
               <div className="relative mt-8 flex justify-center">
-                <button
+                <Button
                   type="button"
                   onClick={() => router.push("/child")}
-                  className="rounded-full bg-[#ff6868] px-8 py-3 text-base font-black text-white shadow-sm transition hover:bg-[#ef5353]"
+                  variant="rose"
+                  size="lg"
                 >
                   Read another worksheet
-                </button>
+                </Button>
               </div>
             </div>
 

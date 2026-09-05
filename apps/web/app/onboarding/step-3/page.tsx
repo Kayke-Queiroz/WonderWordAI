@@ -7,6 +7,7 @@ import OnboardingShell from "@/components/onboarding/OnboardingShell";
 import MascotBubble from "@/components/onboarding/MascotBubble";
 import { useOnboarding } from "@/components/onboarding/OnboardingContext";
 import { completeOnboarding } from "@/app/onboarding/actions";
+import { Button } from "@/components/shared/Button";
 
 const GUARDRAILS = [
   {
@@ -85,22 +86,23 @@ export default function OnboardingStepThree() {
       ) : null}
 
       <div className="mt-8 flex items-center justify-end gap-3">
-        <button
+        <Button
           type="button"
           onClick={() => router.push("/onboarding/step-2")}
           disabled={isSubmitting}
-          className="rounded-full border border-[#ece6da] px-6 py-3 text-sm font-semibold text-[#5a5a5a] transition hover:bg-[#faf7f2] disabled:opacity-50"
+          variant="outline"
+          className="disabled:opacity-50"
         >
           Back
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
           onClick={handleContinue}
           disabled={isSubmitting}
-          className="rounded-full bg-[#a3352b] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#8c2c23] disabled:cursor-not-allowed disabled:opacity-60"
+          className="disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isSubmitting ? "Creating your account..." : "Continue →"}
-        </button>
+        </Button>
       </div>
     </OnboardingShell>
   );

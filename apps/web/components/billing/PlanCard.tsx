@@ -1,5 +1,6 @@
 import { Check, X } from "lucide-react";
 import { formatCents, type BillingInterval, type PlanDefinition } from "@/lib/stripe/plans";
+import { Button } from "@/components/shared/Button";
 
 type PlanCardProps = {
   plan: PlanDefinition;
@@ -80,14 +81,15 @@ export default function PlanCard({
         ))}
       </ul>
 
-      <button
+      <Button
         type="button"
         onClick={onSelect}
         disabled={isCurrentPlan}
-        className={`mt-6 w-full rounded-full py-3 text-sm font-semibold transition ${
+        fullWidth
+        className={`mt-6 ${
           isCurrentPlan
-            ? "cursor-default bg-[#ece6da] text-[#8a8a8a]"
-            : "bg-[#a3352b] text-white hover:bg-[#8c2c23]"
+            ? "cursor-default bg-[#ece6da] text-[#8a8a8a] shadow-none"
+            : ""
         }`}
       >
         {isCurrentPlan
@@ -95,7 +97,7 @@ export default function PlanCard({
           : plan.id === "free"
             ? "Downgrade"
             : "Choose Plan"}
-      </button>
+      </Button>
     </div>
   );
 }

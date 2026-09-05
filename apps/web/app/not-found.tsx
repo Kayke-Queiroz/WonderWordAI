@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { SiteHeader } from "@/components/shared/SiteHeader";
 import { SiteFooter } from "@/components/shared/SiteFooter";
+import { Button } from "@/components/shared/Button";
 
 export default function NotFound() {
   return (
@@ -17,12 +17,9 @@ export default function NotFound() {
         <p className="mt-4 max-w-md text-base leading-7 text-[#5a5a5a]">
           We couldn&apos;t find the page you were looking for. It may have moved, or the link might be outdated.
         </p>
-        <Link
-          href="/"
-          className="mt-8 inline-flex min-h-12 items-center rounded-full bg-[#a3352b] px-6 text-sm font-extrabold text-white shadow-sm transition hover:bg-[#8c2c23]"
-        >
+        <Button as="a" href="/" className="mt-8 font-extrabold">
           Back to Home
-        </Link>
+        </Button>
       </main>
 
       <SiteFooter />

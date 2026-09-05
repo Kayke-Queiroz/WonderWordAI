@@ -6,18 +6,22 @@ import {
   initialResetPasswordState,
 } from "@/app/auth/reset-password/state";
 import { PasswordInput } from "@/components/auth/PasswordInput";
+import { Button } from "@/components/shared/Button";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <button
+    <Button
       type="submit"
       disabled={pending}
-      className="w-full min-h-12 rounded-xl bg-red-700 px-5 text-base font-black text-white shadow-md transition hover:bg-red-800 disabled:cursor-wait disabled:bg-gray-300"
+      variant="coral"
+      size="lg"
+      fullWidth
+      className="rounded-xl disabled:cursor-wait disabled:bg-gray-300 disabled:shadow-none"
     >
       {pending ? "Updating..." : "Update Password 🛡"}
-    </button>
+    </Button>
   );
 }
 
@@ -40,12 +44,16 @@ export function ResetPasswordForm() {
           Great job! Your password is all set. You can now log back in.
         </p>
 
-        <a
+        <Button
+          as="a"
           href="/auth/login"
-          className="mt-6 block text-center min-h-12 leading-[3rem] rounded-xl bg-red-400 text-white font-black hover:bg-red-500"
+          variant="rose"
+          size="lg"
+          fullWidth
+          className="mt-6 rounded-xl"
         >
           → Back to Login
-        </a>
+        </Button>
 
         <p className="mt-4 text-xs font-bold text-gray-400">
           🛡 Your account is now secure

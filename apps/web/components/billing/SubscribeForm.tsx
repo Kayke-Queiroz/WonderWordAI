@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { Button } from "@/components/shared/Button";
 
 type SubscribeFormProps = {
   planName: string;
@@ -50,20 +51,21 @@ export default function SubscribeForm({ planName }: SubscribeFormProps) {
       )}
 
       <div className="mt-6 flex items-center gap-3">
-        <button
+        <Button
           type="submit"
           disabled={!stripe || submitting}
-          className="rounded-full bg-[#a3352b] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#8c2c23] disabled:opacity-60"
+          className="disabled:opacity-60"
         >
           {submitting ? "Processing…" : `Subscribe to ${planName}`}
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
           onClick={() => router.push("/billing")}
-          className="rounded-full border border-[#e0c9c6] px-6 py-3 text-sm font-semibold text-[#a3352b] transition hover:bg-[#fbeceb]"
+          variant="outline"
+          className="border-[#e0c9c6] text-[#a3352b] hover:bg-[#fbeceb]"
         >
           Cancel
-        </button>
+        </Button>
       </div>
     </form>
   );

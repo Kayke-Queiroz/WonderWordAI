@@ -3,6 +3,7 @@
   import { Pause, Play, RotateCcw, Square, Waves } from "lucide-react";
   import { useCallback, useEffect, useMemo, useRef, useState } from "react";
   import { ApiError } from "@/lib/api/client";
+  import { Button } from "@/components/shared/Button";
   import { uploadSessionAudio } from "@/lib/audio/browser-client";
   import type { SessionAudioData, SessionAudioMiscue } from "@/lib/audio/schema";
   import {
@@ -555,26 +556,30 @@ onTranscriptionComplete(result);
 
         <div className="mt-5 grid gap-3">
           {recordingState === "recording" ? (
-            <button
+            <Button
               type="button"
               onClick={stopRecording}
               aria-label="Stop recording"
-              className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-[var(--radius-card)] bg-coral px-5 text-base font-black text-white shadow-soft transition hover:bg-coral/90"
+              size="lg"
+              fullWidth
+              className="rounded-[var(--radius-card)] bg-coral hover:bg-coral/90 shadow-soft active:shadow-none"
             >
               <Square className="size-5 fill-current" />
               Stop
-            </button>
+            </Button>
           ) : (
-            <button
+            <Button
               type="button"
               onClick={handleStartRecording}
               disabled={!canStartRecording}
               aria-label={showRetry ? "Retry recording" : "Start reading"}
-              className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-[var(--radius-card)] bg-coral px-5 text-base font-black text-white shadow-soft transition hover:bg-coral/90 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-500 disabled:shadow-none"
+              size="lg"
+              fullWidth
+              className="rounded-[var(--radius-card)] bg-coral hover:bg-coral/90 shadow-soft active:shadow-none disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-500 disabled:shadow-none"
             >
               <Waves className="size-5" />
               {showRetry ? "Retry recording" : "Start Reading"}
-            </button>
+            </Button>
           )}
 
           <div className="grid grid-cols-3 gap-2">

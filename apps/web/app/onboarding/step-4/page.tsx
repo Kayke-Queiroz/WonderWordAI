@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { PartyPopper, AlertTriangle } from "lucide-react";
 import OnboardingShell from "@/components/onboarding/OnboardingShell";
 import { useOnboarding } from "@/components/onboarding/OnboardingContext";
+import { Button } from "@/components/shared/Button";
 
 export default function OnboardingStepFour() {
   const router = useRouter();
@@ -57,13 +58,14 @@ export default function OnboardingStepFour() {
           </div>
         ) : null}
 
-        <button
+        <Button
           type="button"
           onClick={handleStartReading}
-          className="mt-8 w-full max-w-xs rounded-full bg-[#a3352b] py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#8c2c23]"
+          fullWidth
+          className="mt-8 max-w-xs"
         >
           Start Reading →
-        </button>
+        </Button>
         <a
           href="/parent/dashboard"
           className="mt-4 text-sm font-medium text-[#5a5a5a] hover:text-[#2b2b2b]"

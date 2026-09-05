@@ -6,6 +6,7 @@ import { LogOut, Volume2, VolumeX, X } from "lucide-react";
 import { SiteHeader, type SiteNavItem } from "@/components/shared/SiteHeader";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { HeaderUserBadge } from "@/components/shared/HeaderUserBadge";
+import { Button } from "@/components/shared/Button";
 
 const HEADER_NAV_ITEMS: SiteNavItem[] = [
   { label: "Home", href: "#" },
@@ -256,13 +257,15 @@ export function ExplorerClient({ childName }: { childName: string }) {
                   </div>
 
                   <div className="flex flex-col min-[480px]:flex-row gap-4">
-                    <button
+                    <Button
                       type="button"
                       onClick={handleHearDefinition}
-                      className={`flex-1 min-h-[56px] text-white text-xl font-extrabold px-6 py-3 rounded-full flex items-center justify-center gap-2 transition shadow-sm ${
+                      variant={isSpeaking ? "coral" : "mint"}
+                      size="lg"
+                      className={`flex-1 ${
                         isSpeaking
-                          ? "bg-[#2b2b2b] hover:bg-black"
-                          : "bg-[#4ecdc4] hover:bg-[#3dbdb3]"
+                          ? "bg-[#2b2b2b] hover:bg-black shadow-[0_4px_0_0_#121212]"
+                          : ""
                       }`}
                     >
                       {isSpeaking ? (
@@ -276,14 +279,16 @@ export function ExplorerClient({ childName }: { childName: string }) {
                           Hear it again
                         </>
                       )}
-                    </button>
-                    <button
+                    </Button>
+                    <Button
                       type="button"
                       onClick={handleClear}
-                      className="flex-1 min-h-[56px] bg-[#ff6b6b] hover:bg-[#e85a5a] text-white text-xl font-extrabold px-6 py-3 rounded-full flex items-center justify-center gap-2 transition shadow-sm"
+                      variant="rose"
+                      size="lg"
+                      className="flex-1 hover:bg-[#e85a5a]"
                     >
                       Finish
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>

@@ -6,18 +6,22 @@ import {
   initialForgotPasswordState,
   type ForgotPasswordActionState,
 } from "@/app/auth/forgot-password/state";
+import { Button } from "@/components/shared/Button";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <button
+    <Button
       type="submit"
       disabled={pending}
-      className="w-full min-h-12 rounded-xl bg-red-400 px-5 text-base font-black text-white shadow-md transition hover:bg-red-500 disabled:cursor-wait disabled:bg-gray-300"
+      variant="rose"
+      size="lg"
+      fullWidth
+      className="rounded-xl disabled:cursor-wait disabled:bg-gray-300 disabled:shadow-none"
     >
       {pending ? "Sending..." : "Send Reset Link ➤"}
-    </button>
+    </Button>
   );
 }
 
@@ -41,12 +45,16 @@ export function ForgotPasswordForm() {
           spam folder, just in case).
         </p>
 
-        <a
+        <Button
+          as="a"
           href="/auth/login"
-          className="mt-6 block text-center min-h-12 leading-[3rem] rounded-xl bg-red-700 text-white font-black hover:bg-red-800"
+          variant="coral"
+          size="lg"
+          fullWidth
+          className="mt-6 rounded-xl"
         >
           → Back to Login
-        </a>
+        </Button>
 
         <p className="mt-4 text-center text-sm text-gray-500">
           Didn&apos;t receive anything?{" "}

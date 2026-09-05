@@ -12,6 +12,7 @@ import { signOut } from "@/app/auth/actions";
 import { SiteHeader, type SiteNavItem } from "@/components/shared/SiteHeader";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { HeaderUserBadge } from "@/components/shared/HeaderUserBadge";
+import { Button } from "@/components/shared/Button";
 
 const HEADER_NAV_ITEMS: SiteNavItem[] = [
   { label: "Home", href: "#", active: true },
@@ -183,21 +184,14 @@ export function ChildHomeClient({
 
             <HeaderUserBadge name={childName} />
 
-            <button
-              type="button"
-              onClick={handleBackToParent}
-              className="rounded-full border border-[#ecdfc9] px-3 py-1.5 text-xs font-bold text-[#5a5a5a] transition hover:bg-[#faf7f2]"
-            >
+            <Button type="button" onClick={handleBackToParent} variant="outline" size="sm">
               ← Parent
-            </button>
+            </Button>
 
             <form action={signOut}>
-              <button
-                type="submit"
-                className="rounded-full border border-[#ecdfc9] px-3 py-1.5 text-xs font-bold text-[#5a5a5a] transition hover:bg-[#faf7f2]"
-              >
+              <Button type="submit" variant="outline" size="sm">
                 Log Out
-              </button>
+              </Button>
             </form>
           </div>
         }
@@ -379,14 +373,10 @@ function ProfileSwitcherDropdown({
 
   return (
     <div ref={containerRef} className="relative">
-      <button
-        type="button"
-        onClick={() => setIsOpen((v) => !v)}
-        className="flex items-center gap-1.5 rounded-full border border-[#ecdfc9] px-3 py-1.5 text-xs font-bold text-[#5a5a5a] transition hover:bg-[#faf7f2]"
-      >
+      <Button type="button" onClick={() => setIsOpen((v) => !v)} variant="outline" size="sm">
         Switch Profile
         <ChevronDown className={`h-3.5 w-3.5 transition-transform ${isOpen ? "rotate-180" : ""}`} />
-      </button>
+      </Button>
 
       {isOpen ? (
         <div className="absolute right-0 top-full z-20 mt-2 w-48 overflow-hidden rounded-2xl border border-[#ecdfc9] bg-white shadow-lg">

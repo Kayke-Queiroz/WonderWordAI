@@ -12,6 +12,7 @@ import {
 import { SiteHeader, type SiteNavItem } from "@/components/shared/SiteHeader";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { HeaderUserBadge } from "@/components/shared/HeaderUserBadge";
+import { Button } from "@/components/shared/Button";
 
 const HEADER_NAV_ITEMS: SiteNavItem[] = [
   { label: "Home", href: "/child" },
@@ -371,12 +372,15 @@ function ThemedStoryContent({ childName }: { childName: string }) {
                     <p className="text-sm text-[#8a8a8a] max-w-md mx-auto mb-4 font-semibold">
                       {errorStory}
                     </p>
-                    <button
+                    <Button
+                      type="button"
                       onClick={() => window.location.reload()}
-                      className="px-6 py-2 bg-[#4ecdc4] hover:bg-[#3dbdb3] text-white text-xs font-bold rounded-full transition shadow-sm"
+                      variant="mint"
+                      size="sm"
+                      className="text-xs font-bold"
                     >
                       Try Again
-                    </button>
+                    </Button>
                   </div>
                 ) : (
                   /* Character Renderer: Standard Clean Text Rectangle with active focus border */

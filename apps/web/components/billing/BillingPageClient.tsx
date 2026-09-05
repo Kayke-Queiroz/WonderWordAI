@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft, Settings } from "lucide-react";
 import PlanCard from "@/components/billing/PlanCard";
 import { PLANS, type PlanId, type BillingInterval } from "@/lib/stripe/plans";
+import { Button } from "@/components/shared/Button";
 
 type BillingPageClientProps = {
   currentPlan: PlanId;
@@ -140,15 +141,15 @@ export default function BillingPageClient({
               Update your card, download invoices, or cancel your
               subscription — securely managed by Stripe.
             </p>
-            <button
+            <Button
               type="button"
               onClick={handleManageBilling}
               disabled={loadingPortal}
-              className="mt-2 flex items-center gap-2 rounded-full bg-[#a3352b] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#8c2c23] disabled:opacity-60"
+              className="mt-2 disabled:opacity-60"
             >
               <Settings className="h-4 w-4" />
               {loadingPortal ? "Opening..." : "Manage Billing"}
-            </button>
+            </Button>
           </div>
         )}
       </main>

@@ -8,6 +8,7 @@ import {
   type OcrErrorBody
 } from "@/lib/ocr/schema";
 import type { WorksheetUploadStatus } from "@/components/child/ChildSessionContext";
+import { Button } from "@/components/shared/Button";
 
 type OcrUploadResult = {
   sessionId: string;
@@ -295,57 +296,64 @@ export function WorksheetCapture({
       ) : null}
 
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
-        <button
+        <Button
           type="button"
           onClick={handleStartCamera}
           disabled={isUploading}
-          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[var(--radius-card)] border border-coral/30 px-4 py-3 text-sm font-black text-coral transition hover:bg-coral/10 disabled:cursor-not-allowed disabled:opacity-60"
+          variant="outline"
+          className="rounded-[var(--radius-card)] border-coral/30 text-coral hover:bg-coral/10 disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none"
         >
           <Camera aria-hidden="true" className="size-5" />
           Open camera
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
           onClick={handleChooseFile}
           disabled={isUploading}
-          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[var(--radius-card)] border border-teal/30 px-4 py-3 text-sm font-black text-teal transition hover:bg-teal/10 disabled:cursor-not-allowed disabled:opacity-60"
+          variant="outline"
+          className="rounded-[var(--radius-card)] border-teal/30 text-teal hover:bg-teal/10 disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none"
         >
           <ImageUp aria-hidden="true" className="size-5" />
           Choose photo
-        </button>
+        </Button>
       </div>
 
       {showCamera ? (
-        <button
+        <Button
           type="button"
           onClick={handleCaptureFrame}
-          className="mt-3 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-[var(--radius-card)] bg-coral px-5 py-3 text-base font-black text-white shadow-soft transition hover:bg-coral/90"
+          size="lg"
+          fullWidth
+          className="mt-3 rounded-[var(--radius-card)] bg-coral hover:bg-coral/90 shadow-soft active:shadow-none"
         >
           <Camera aria-hidden="true" className="size-5" />
           Take photo
-        </button>
+        </Button>
       ) : null}
 
       {selectedFile ? (
         <div className="mt-3 grid gap-3 sm:grid-cols-[0.8fr_1.2fr]">
-          <button
+          <Button
             type="button"
             onClick={clearSelectedImage}
             disabled={isUploading}
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[var(--radius-card)] border border-slate-200 px-4 py-3 text-sm font-black text-muted transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
+            variant="outline"
+            className="rounded-[var(--radius-card)] border-slate-200 text-muted hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none"
           >
             <RotateCcw aria-hidden="true" className="size-5" />
             Retake
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
             onClick={handleUpload}
             disabled={isUploading}
-            className="inline-flex min-h-14 items-center justify-center gap-2 rounded-[var(--radius-card)] bg-navy px-5 py-3 text-base font-black text-white shadow-soft transition hover:bg-navy/92 disabled:cursor-not-allowed disabled:opacity-70"
+            variant="coral"
+            size="lg"
+            className="rounded-[var(--radius-card)] bg-navy hover:bg-navy/92 shadow-soft active:shadow-none disabled:cursor-not-allowed disabled:opacity-70"
           >
             <Upload aria-hidden="true" className="size-5" />
             {isUploading ? "Scanning..." : "Scan worksheet"}
-          </button>
+          </Button>
         </div>
       ) : null}
     </section>

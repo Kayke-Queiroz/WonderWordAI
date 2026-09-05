@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BookOpen, Rocket } from "lucide-react";
 import { requireRole } from "@/lib/auth/server";
+import { Button } from "@/components/shared/Button";
 
 export const metadata: Metadata = {
   title: "Story Library"
@@ -41,12 +42,9 @@ export default async function StoryLibraryPage() {
             No saved stories are available yet. Stories generated during a child reading
             session will appear here once library storage is connected.
           </p>
-          <Link
-            href="/parent/dashboard"
-            className="mt-7 inline-flex rounded-full bg-rose-500 px-6 py-3 text-sm font-bold text-white hover:bg-rose-600"
-          >
+          <Button as="a" href="/parent/dashboard" variant="rose500" size="lg" className="mt-7">
             Back to dashboard
-          </Link>
+          </Button>
         </section>
       </main>
     </div>

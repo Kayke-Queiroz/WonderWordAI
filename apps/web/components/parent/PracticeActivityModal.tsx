@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import type { PracticeRecommendation } from "@/lib/practice/schema";
 import { formatPhonicsCategory } from "@/lib/phonics/format";
+import { Button } from "@/components/shared/Button";
 
 // ticket: integrate playful practice recommendations into parent dashboard
 // maps the small set of icon keywords stored in activity_recommendations.materials
@@ -171,22 +172,14 @@ export function PracticeActivityModal({
         </div>
 
         <div className="flex justify-center gap-3 px-6 pb-6 pt-2">
-          <button
-            type="button"
-            onClick={onPrint} 
-            className="inline-flex items-center gap-2 rounded-full bg-coral px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-coral/90"
-          >
+          <Button type="button" onClick={onPrint} variant="sunset" size="md">
             <Download className="h-4 w-4" />
             Save
-          </button>
-          <button
-            type="button"
-            onClick={onPrint}
-            className="inline-flex items-center gap-2 rounded-full bg-coral px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-coral/90"
-          >
+          </Button>
+          <Button type="button" onClick={onPrint} variant="sunset" size="md">
             <Printer className="h-4 w-4" />
             Print
-          </button>
+          </Button>
         </div>
       </div>
     </div>
