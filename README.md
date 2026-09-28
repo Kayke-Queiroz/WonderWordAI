@@ -58,17 +58,19 @@ Developed under the **Product Manager Accelerator** program by an international 
 
 ---
 
-## 🌍 International Team & Origin
+## 🌍 International Team & Contributors
 
-This project was built as part of the **Product Manager Accelerator** program by an international team working across multiple time zones.
+This project was built as part of the **Product Manager Accelerator** program by an international, cross-functional team working across multiple time zones.
 
-For original commit history, code governance, and team structure, please refer to the original repository and [`.github/CODEOWNERS`](.github/CODEOWNERS).
-
-**Team Members:**
-- [@Matheus-Emanue123](https://github.com/Matheus-Emanue123)
-- [@anderpudding](https://github.com/anderpudding)
-- [@anvitaindrakanty](https://github.com/anvitaindrakanty)
-- [@Kayke-Queiroz](https://github.com/Kayke-Queiroz)
+**Contributors:**
+- **Matheus Emanuel da Silva** ([@Matheus-Emanue123](https://github.com/Matheus-Emanue123))
+- **Anvita Indrakanty** ([@anvitaindrakanty](https://github.com/anvitaindrakanty))
+- **anderpudding** ([@anderpudding](https://github.com/anderpudding))
+- **Swati Sahu** ([@sahusw](https://github.com/sahusw))
+- **Arul Krishna** ([@arulkrishna47](https://github.com/arulkrishna47))
+- **Shreya Chaudhri** ([@chicknugget](https://github.com/chicknugget))
+- **Ridham Kamal** ([@ridhamkamal](https://github.com/ridhamkamal))
+- **Kayke Queiroz** ([@Kayke-Queiroz](https://github.com/Kayke-Queiroz))
 
 ---
 
