@@ -60,13 +60,14 @@ Developed under the **Product Manager Accelerator** program by an international 
 
 ## 👨‍💻 My Key Contributions
 
-As an AI & Full-Stack Engineer on the team, I focused on agent development, multimodal AI pipelines, and end-to-end service integration:
+As an AI & Full-Stack Engineer on the team, I focused on agent systems, multimodal AI pipelines, and end-to-end service integration:
 
-- **AI Agent Development & Cost Routing (OpenAI & Anthropic Claude):** Built autonomous agent capabilities leveraging OpenAI and Anthropic Claude LLMs, designing dynamic model routing (delegating simpler tasks to Haiku and complex reasoning to Sonnet) that achieved an estimated **60–70% reduction in LLM API operational costs**.
-- **Callback Systems & Media Optimization (Unsplash API):** Implemented custom callback architectures and integrated queries against remote media databases (Unsplash API) to replace costly on-the-fly image generation, targeting an **~80% reduction in media generation overhead**.
-- **AI/ML Service, OCR & STT Migration:** Contributed to the Python FastAPI ML microservice, assisting with OCR pipelines for text extraction from worksheets and supporting speech-to-text (STT) migrations alongside WhisperX alignment workflows.
-- **Full-Stack Endpoints & API Integration:** Engineered and connected end-to-end API routes across both Next.js 14 (Frontend/BFF) and FastAPI/Supabase (Backend), ensuring structured payload delivery and robust error handling.
-- **Authentication & Security:** Implemented Google OAuth authentication flows and configured protected routes/middleware to secure user sessions across the web client.
+- **Story-Generation AI Agent System & Cost Routing:** Engineered a multi-LLM agent system (OpenAI & Anthropic Claude) dedicated to generating interactive, personalized children's stories. Implemented context-aware prompt flows and dynamic model routing (delegating simpler tasks to Haiku and complex reasoning to Sonnet), achieving an estimated **60–70% reduction in LLM API operational costs**[cite: 1].
+- **RAG & Vector Database Storytelling Pipeline:** Designed and integrated a Retrieval-Augmented Generation (RAG) architecture connected to the database, retrieving relevant contextual knowledge, themes, and vocabulary to ground story generation and eliminate narrative hallucinations.
+- **Callback Systems & Media Optimization (Unsplash API):** Implemented custom callback architectures and integrated queries against remote media databases (Unsplash API) to dynamically fetch visual assets instead of on-the-fly generative rendering, targeting an **~80% reduction in media generation overhead**[cite: 1].
+- **AI/ML Service, OCR & STT Migration:** Contributed to the Python FastAPI ML microservice, assisting with OCR pipelines for text extraction from worksheets and supporting speech-to-text (STT) migrations alongside WhisperX alignment workflows[cite: 1].
+- **Full-Stack Endpoints & API Integration:** Engineered and connected end-to-end API routes across both Next.js 14 (Frontend/BFF) and FastAPI/Supabase (Backend), ensuring structured payload delivery and robust error handling[cite: 1].
+- **Authentication & Security:** Implemented Google OAuth authentication flows and configured protected routes/middleware to secure user sessions across the web client[cite: 1].
   
 ---
 
